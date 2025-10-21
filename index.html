@@ -25,16 +25,17 @@
             <header>
                 <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 250px;">
                     <div class="logo" onclick="showView('home')"><i class="fas fa-leaf"></i> EcoSwap</div>
+                    <img src="assets/images/logo.png" alt="Sustainable water bottle" loading="lazy" class="responsive-image">
                     <button id="mode-toggle" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()">
                         <i class="fas fa-sun"></i> 
                     </button>
                 </div>
                 <nav>
+                    <button onclick="showView('about')" id="nav-about">About Us</button>
                     <button onclick="showView('home')" class="active" id="nav-home">Home</button>
                     <button onclick="showView('search')" id="nav-search">Search</button>
                     <button onclick="showView('plans')" id="nav-plans">Plans</button>
                     <button onclick="showView('contribute')" id="nav-contribute">Contribute</button>
-                    <button onclick="showView('about')" id="nav-about">About Us</button>
                 </nav>
             </header>
 
@@ -57,7 +58,9 @@
                         <div class="stat-number">89k</div>
                     </div>
                 </div>
-                <video controls="" autoplay="" playsinline width="600" height="400" src="./assets/videos/Introduction.mp4" class=""></video>
+                <center>
+                    <video controls="" autoplay="" playsinline width="600" height="400" src="./assets/videos/Introduction.mp4" class=""></video>
+                </center>
                 <div class="hero-card">
                     <h1><i class="fas fa-globe-americas"></i> Together for a Greener Future</h1>
                     <p>Find sustainable alternatives for everyday products. We rate eco-friendliness based on carbon footprint, water usage, and recyclability - making it easy to make better choices for our planet.</p>
@@ -208,6 +211,7 @@
 </body>
 
 </html>
+
 
 
 
