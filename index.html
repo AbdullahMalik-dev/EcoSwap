@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSwap - Find Sustainable Alternatives</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/49cc6b5952.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode"> 
+    <div id="splash-screen">
+        <div class="splash-logo">
+            <i class="fas fa-leaf"></i> EcoSwap
+            <center>
+            <img src="assets/images/logo.png" alt="Sustainable water bottle" loading="lazy" class="responsive-image myImg">
+            </center>
+        </div>
+    </div>
+    
+    <div id="app-container">
+        <div class="container">
+            <header>
+                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 250px;">
+                    <div class="logo" onclick="showView('home')"><i class="fas fa-leaf"></i> EcoSwap</div>
+                    <button id="mode-toggle" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()">
+                        <i class="fas fa-sun"></i> 
+                    </button>
+                </div>
+                <nav>
+                    <button onclick="showView('home')" class="active" id="nav-home">Home</button>
+                    <button onclick="showView('search')" id="nav-search">Search</button>
+                    <button onclick="showView('plans')" id="nav-plans">Plans</button>
+                    <button onclick="showView('contribute')" id="nav-contribute">Contribute</button>
+                    <button onclick="showView('about')" id="nav-about">About Us</button>
+                </nav>
+            </header>
+
+            <div id="home-view" class="view active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Products in Database</div>
+                        <div class="stat-number">300+</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">CO₂ Saved (tons)</div>
+                        <div class="stat-number">2.3k</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Water Saved (Liters)</div>
+                        <div class="stat-number">5.1M</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Eco Swaps Made</div>
+                        <div class="stat-number">89k</div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h1><i class="fas fa-globe-americas"></i> Together for a Greener Future</h1>
+                    <p>Find sustainable alternatives for everyday products. We rate eco-friendliness based on carbon footprint, water usage, and recyclability - making it easy to make better choices for our planet.</p>
+                    <button class="btn-primary" onclick="showView('search')">Start Swapping Now →</button>
+                </div>
+            </div>
+
+            <div id="search-view" class="view">
+                <div class="search-section">
+                    <h2>🔍 Find Sustainable Alternatives</h2>
+                    <p id="search-subtitle" style="color: var(--color-text-secondary-light); margin-bottom: 20px;"></p>
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Try: bottle, bag, shirt, toothbrush..." onkeypress="if(event.key==='Enter') searchProducts()">
+                        <button class="btn-search" onclick="searchProducts()">Search</button>
+                    </div>
+                </div>
+                <div id="results" class="results-grid"></div>
+            </div>
+            
+            <div id="plans-view" class="view">
+                <div class="search-section" style="margin-bottom: 30px;">
+                    <h2 style="text-align: center;"><i class="fas fa-bolt"></i> Unlock Your Eco Potential</h2>
+                    <p style="text-align: center; color: var(--color-text-secondary-light); max-width: 700px; margin: 0 auto 40px;">Choose the plan that best fits your sustainability journey. Go Premium for unlimited access and deep, verified environmental data.</p>
+                    
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3 style="color: var(--color-accent-secondary);"><i class="fas fa-hand-holding-seedling"></i> Free Plan</h3>
+                            <div class="plan-price">AED 0<small>/mo</small></div>
+                            <p style="color: var(--color-text-secondary-light);">The perfect way to start making conscious swaps.</p>
+                            <div class="plan-features">
+                                <li><i class="fas fa-check feature-check"></i> Access to <strong>2</strong> alternative products per search.</li>
+                                <li><i class="fas fa-check feature-check"></i> Basic eco-friendliness report (Scores 1-10).</li>
+                                <li><i class="fas fa-check feature-check"></i> Access to the product pitching section.</li>
+                                <li><i class="fas fa-times feature-x"></i> Limited access to new product additions.</li>
+                                <li><i class="fas fa-times feature-x"></i> Data based on <em>estimated</em> environmental averages.</li>
+                            </div>
+                            <button id="free-plan-btn" class="btn-secondary">Current Plan</button>
+                        </div>
+
+                        <div class="plan-card premium">
+                            <h3 style="color: var(--color-accent-primary);"><i class="fas fa-seedling"></i> Premium Plan</h3>
+                            <div class="plan-price">AED 8.99<small>/mo</small></div>
+                            <p style="color: var(--color-text-secondary-light); font-weight: 600;">The ultimate toolkit for the dedicated eco-consumer.</p>
+                            <div class="plan-features">
+                                <li><i class="fas fa-check feature-check"></i> <strong>View all</strong> possible alternatives for any product.</li>
+                                <li><i class="fas fa-check feature-check"></i> <strong>In-depth reports</strong> with real, verified data.</li>
+                                <li><i class="fas fa-check feature-check"></i> Unlock <strong>raw data</strong> metrics (CO₂, water use, etc.).</li>
+                                <li><i class="fas fa-check feature-check"></i> Priority viewing of new product additions.</li>
+                                <li><i class="fas fa-check feature-check"></i> Exclusive partnership and volunteer event access.</li>
+                            </div>
+                            <button id="premium-plan-btn" class="btn-primary" onclick="alert('Redirecting to payment page...')">Subscribe Now</button>
+                        </div>
+                    </div>
+
+                    <div class="redeem-section">
+                        <h3><i class="fas fa-gift"></i> Have a redemption code?</h3>
+                        <div class="redeem-box">
+                            <input type="text" id="redeemCodeInput" class="search-input" placeholder="Enter your code...">
+                            <button class="btn-search" onclick="redeemCode()">Redeem</button>
+                        </div>
+                        <p id="redeem-message" style="margin-top: 10px; font-size: 14px; min-height: 20px;"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="contribute-view" class="view">
+                 <div class="pitch-section search-section">
+                    <h2><i class="fas fa-tree"></i> Join the EcoSwap Movement</h2>
+                    <p style="color: var(--color-text-secondary-light); margin-bottom: 40px; line-height: 1.6;">
+                        EcoSwap is powered by community and collaboration. Whether you're a sustainable brand or an individual passionate about making a difference, we have a place for you.
+                    </p>
+                    <div class="pitch-card-grid">
+                        <div class="pitch-card">
+                            <h3>Pitch Your Sustainable Product</h3>
+                            <p>Have an incredible eco-friendly product? Pitch it to our team! If accepted after our rigorous review process, your product will be featured as a verified alternative in the app, and you'll receive a portion of our Premium plan income as a commission.</p>
+                            <button class="btn-primary" onclick="alert('Redirecting to Product Submission Form (Example Action).')">Submit Product Pitch</button>
+                        </div>
+                        <div class="pitch-card">
+                            <h3>Partnerships, Events, & Volunteering</h3>
+                            <p>We're always looking for organizations and passionate individuals to collaborate with. Apply to suggest <strong>partnerships</strong>, sponsor <strong>events</strong>, or join our <strong>volunteer</strong> team to help with product research and community outreach.</p>
+                            <button class="btn-secondary" onclick="alert('Redirecting to Collaboration Application Form (Example Action).')">Apply to Collaborate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="about-view" class="view">
+                <div class="about-section">
+                    <h2><i class="fas fa-info-circle"></i> About EcoSwap</h2>
+                    <p>EcoSwap was born from a simple but powerful idea: making sustainable living accessible to everyone. We believe that small, conscious choices in our daily consumption can collectively create a massive positive impact on our planet.</p>
+                    
+                    <p>Our platform helps you discover eco-friendly alternatives to everyday products, with transparent ratings based on verified environmental data. We evaluate products across three key metrics: carbon footprint, water usage, and recyclability to give you a comprehensive understanding of their true environmental impact.</p>
+                    
+                    <p>Whether you're just starting your sustainability journey or are a seasoned eco-warrior, EcoSwap provides the tools and information you need to make better choices for our planet.</p>
+                </div>
+                
+                <div class="team-section">
+                    <h2>Team Eco Swap</h2>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="avatar">
+                                <img src=".\assets\images\jewel.jpg" alt="Team Member Name" style="width: 99%; height: 99%;">
+                            </div>
+                            <h3>Jewel Julianne</h3>
+                            <p class="role">Research Doc Writer & Presentation Lead</p>
+                            <p class="tagline">✨ Visual Visionary</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="avatar">
+                                <img src=".\assets\images\vaaruni.jpg" alt="Team Member Name" style="width: 99%; height: 99%;">
+                            </div>
+                            <h3>Vaaruni Saxena</h3>
+                            <p class="role">Scripter & Script Writer</p>
+                            <p class="tagline">🪞 Reality Renderer</p>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="avatar">
+                                <img src=".\assets\images\Abdullah.png" alt="Team Member Name" style="width: 99%; height: 99%;">
+                            </div>
+                            <h3>Abdullah Malik</h3>
+                            <p class="role">Web Designer</p>
+                            <p class="tagline">🧑‍💻 Backend Barbarian</p>
+                        </div>
+
+                        <div class="team-card">
+                            <div class="avatar">
+                                <img src=".\assets\images\hani.png" alt="Team Member Name" style="width: 99%; height: 99%;">
+                            </div>
+                            <h3>Mohammed Hani</h3>
+                            <p class="role">Finance Manager</p>
+                            <p class="tagline">💸 Money Martian</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="school-info">
+                    <h3>American International School</h3>
+                    <p>Proudly developed by students committed to sustainability and innovation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
